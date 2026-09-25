@@ -1,6 +1,6 @@
 # Utileria.js
 
-Librería de funciones JavaScript para validar datos comunes en formularios web. Resuelve la necesidad de centralizar validaciones de nombres, correos electrónicos (incluyendo correos institucionales), teléfonos (y su lada/estado de origen), edades y contraseñas seguras, evitando repetir la misma lógica en cada formulario del proyecto.
+Librería de funciones JavaScript para validar datos comunes en formularios web. Resuelve la necesidad de centralizar validaciones de nombres, correos electrónicos (incluyendo correos institucionales), teléfonos (y su lada/estado de origen), edades y contraseñas seguras, evitando repetir la misma lógica en cada formulario de un proyecto.
 
 ## Instalación
 
@@ -400,16 +400,18 @@ En esta captura se observan algunos campos con información ingresada y otros qu
 
 ![Formulario principal con datos y errores](img/algo_datos_errores.png)
 
-### Formulario de registro (`login.html`)
+### Formulario de ingreso (`login.html`)
 
-En esta imagen se muestra el formulario de registro con información capturada en sus diferentes campos.
+En esta imagen se muestra el formulario con información capturada en sus diferentes campos.
 
-![Formulario de registro con datos válidos](img/login_datos.png)
+![Formulario con datos válidos](img/login_datos.png)
 
-Esta captura presenta el formulario de registro con datos que no cumplen con las condiciones establecidas. Los mensajes de error indican los campos que necesitan ser corregidos.
+Esta captura presenta el formulario con datos que no cumplen con las condiciones establecidas. Los mensajes de error indican los campos que necesitan ser corregidos.
 
-![Formulario de registro con datos y errores](img/login_datos_errores.png)
+![Formulario con datos y errores](img/login_datos_errores.png)
 
 En esta evidencia se muestra el login en su estado inicial, sin información ingresada. Los campos están preparados para recibir los datos del usuario.
 
-![Formulario de registro vacío](img/login_vacio.png)
+![Formulario vacío](img/login_vacio.png)
+
+
