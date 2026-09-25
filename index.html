@@ -1,91 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
     <script src="js/utileria.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/index.js" defer></script>
+
+    <title>Formulario</title>
 </head>
+
 <body>
 
     <h1>Formulario de registro</h1>
 
-    <form id="formulario">
+    <form id="formulario" novalidate>
 
-        <label>Nombre:</label>
+        <label for="nombre">Nombre:</label>
         <input type="text" id="nombre">
-        <br><br>
+        <label id="errorNombre" class="error"></label><br>
 
-        <label>Correo:</label>
+        <label for="correo">Correo:</label>
         <input type="email" id="correo">
-        <br><br>
+        <label id="errorCorreo" class="error"></label><br>
 
-        <label>Teléfono:</label>
+        <label for="telefono">Teléfono:</label>
         <input type="text" id="telefono">
-        <br><br>
+        <label id="errorTelefono" class="error"></label><br>
 
-        <label>Fecha de nacimiento:</label>
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
         <input type="date" id="fechaNacimiento">
-        <br><br>
+        <label id="errorFecha" class="error"></label><br><br>
 
         <button type="submit">Validar</button>
-
     </form>
 
-    <p id="mensaje"></p>
-
-    <script>
-        document.getElementById("formulario").addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            let nombre = document.getElementById("nombre").value;
-            let correo = document.getElementById("correo").value;
-            let telefono = document.getElementById("telefono").value;
-            let fecha = document.getElementById("fechaNacimiento").value;
-
-            let mensaje = document.getElementById("mensaje");
-
-            if (!soloLetras(nombre)) {
-                mensaje.textContent = "El nombre solo debe contener letras.";
-                return;
-            }
-
-            if (!validarCorreo(correo)) {
-                mensaje.textContent = "El correo no es válido.";
-                return;
-            }
-
-            if (!validarLongitud(telefono, 10)) {
-                mensaje.textContent = "El teléfono debe tener máximo 10 dígitos.";
-                return;
-            }
-
-            if (fecha === "") {
-                mensaje.textContent = "Selecciona una fecha de nacimiento.";
-                return;
-            }
-
-            let edad = calcularEdad(fecha);
-
-            if (edad < 0) {
-                mensaje.textContent = "La fecha de nacimiento no es válida.";
-                return;
-            }
-
-            if (!esMayorDeEdad(fecha)) {
-                mensaje.textContent = "Debes ser mayor de edad.";
-                return;
-            }
-
-            console.log(validarEstado(telefono));
-            
-
-            mensaje.textContent = "Formulario válido. Edad: " + edad;
-
-        });
-    </script>
-
 </body>
+
 </html>

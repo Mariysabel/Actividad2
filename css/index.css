@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+form {
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.error {
+    display: block;
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3085d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #256bb1;
+}

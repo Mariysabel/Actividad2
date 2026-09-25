@@ -1,62 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/login.css">
     <script src="js/utileria.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/login.js" defer></script>
+
     <title>Login</title>
 </head>
 <body>
 
     <h1>Iniciar sesión</h1>
 
-    <form id="login">
+    <form id="login" novalidate>
 
-        <label>Correo:</label>
+        <label for="correo">Correo:</label>
         <input type="email" id="correo">
-        <br><br>
+        <label id="errorCorreo" class="error"></label><br>
 
-        <label>Contraseña:</label>
+        <label for="password">Contraseña:</label>
         <input type="password" id="password">
-        <br><br>
+        <label id="errorPassword" class="error"></label><br><br>
 
         <button type="submit">Ingresar</button>
-
     </form>
-
-    <p id="mensaje"></p>
-
-
-    <script>
-        document.getElementById("login").addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            let correo = document.getElementById("correo").value;
-            let password = document.getElementById("password").value;
-            let mensaje = document.getElementById("mensaje");
-
-            if (!validarCorreo(correo)) {
-                mensaje.textContent = "Correo inválido.";
-                return;
-            }
-
-            if (!esCorreoInstitucional(correo)) {
-                mensaje.textContent = "Tu correo debe ser institucional";
-                return;
-            }
-
-            if (!validarPassword(password)) {
-                mensaje.textContent =
-                    "La contraseña debe tener mayúscula, minúscula, número, carácter especial y mínimo 8 caracteres.";
-                return;
-            }
-
-            mensaje.textContent = "Validaciones correctas.";
-
-        });
-    </script>
 
 </body>
 </html>

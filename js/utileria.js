@@ -1,17 +1,27 @@
 console.log("Hola desde la utilería");
+
 function validarCorreo(correo) {
     let patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return patron.test(correo);
+    let resultado = patron.test(correo);
+
+    console.log("validarCorreo:", correo, ":", resultado);
+    return resultado;
 }
 
 function soloLetras(texto) {
     let patron = /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/;
-    return patron.test(texto);
+    let resultado = patron.test(texto);
+
+    console.log("soloLetras:", texto, ":", resultado);
+    return resultado;
 }
 
 function validarLongitud(numero, maxLongitud) {
     let texto = String(numero);
-    return texto.length <= maxLongitud;
+    let resultado = texto.length <= maxLongitud;
+
+    console.log("validarLongitud:", numero, "máximo:", maxLongitud, ":", resultado);
+    return resultado;
 }
 
 function calcularEdad(fechaNacimiento) {
@@ -29,11 +39,15 @@ function calcularEdad(fechaNacimiento) {
         edad--;
     }
 
+    console.log("calcularEdad:", fechaNacimiento, ":", edad);
     return edad;
 }
 
 function esMayorDeEdad(fechaNacimiento) {
-    return calcularEdad(fechaNacimiento) >= 18;
+    let resultado = calcularEdad(fechaNacimiento) >= 18;
+
+    console.log("esMayorDeEdad:", fechaNacimiento, ":", resultado);
+    return resultado;
 }
 
 function validarPassword(password) {
@@ -43,13 +57,15 @@ function validarPassword(password) {
     let tieneEspecial = /[^A-Za-z0-9\s]/.test(password);
     let tieneLongitud = password.length >= 8;
 
-    return (
+    let resultado =
         tieneMayuscula &&
         tieneMinuscula &&
         tieneNumero &&
         tieneEspecial &&
-        tieneLongitud
-    );
+        tieneLongitud;
+
+    console.log("validarPassword:", password, ":", resultado);
+    return resultado;
 }
 
 function esCorreoInstitucional(correo) {
@@ -59,6 +75,7 @@ function esCorreoInstitucional(correo) {
     let resultado = correoMinusculas.match(patron);
 
     if (!resultado) {
+        console.log("esCorreoInstitucional:", correo, ":", false);
         return false;
     }
 
@@ -73,52 +90,57 @@ function esCorreoInstitucional(correo) {
     ];
 
     if (proveedoresGratuitos.includes(dominio)) {
+        console.log("esCorreoInstitucional:", correo, ":", false);
         return false;
     }
 
+    console.log("esCorreoInstitucional:", correo, ":", true);
     return true;
 }
 
+function validarEstado(numero) {
+    let texto = String(numero);
+    let lada = "";
 
-function validarEstado(numero){
-    let texto= String(numero);
-    let lada ="";
-
-    for(let i = 0; i <= 2; i++) {
+    for (let i = 0; i <= 2; i++) {
         lada += texto.charAt(i);
     }
 
-    console.log(lada);
+    let resultado;
+
     switch (lada) {
         case "951":
-            return "oaxaca";
+            resultado = "oaxaca";
             break;
         case "998":
-            return "Cancún";
+            resultado = "Cancún";
             break;
         case "614":
-            return "Chihuahua";
+            resultado = "Chihuahua";
             break;
         case "220":
-            return "Puebla";
+            resultado = "Puebla";
             break;
         case "221":
-            return "Puebla";
+            resultado = "Puebla";
             break;
         case "222":
-            return "Puebla";
+            resultado = "Puebla";
             break;
         case "443":
-            return "Morelia";
+            resultado = "Morelia";
             break;
         case "442":
-            return "Querétaro";
+            resultado = "Querétaro";
             break;
         case "446":
-            return "Querétaro";
+            resultado = "Querétaro";
             break;
         default:
-            return "Desconocido";
+            resultado = "Desconocido";
             break;
     }
+
+    console.log("validarEstado:", numero, "LADA:", lada, ":", resultado);
+    return resultado;
 }
