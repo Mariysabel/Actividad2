@@ -1,4 +1,3 @@
-
 document.getElementById('formulario').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -22,55 +21,59 @@ document.getElementById('formulario').addEventListener('submit', function (event
     errorTelefono.textContent = '';
     errorFecha.textContent = '';
 
+    let flag = false;
+
     if (!soloLetras(nombre.value)) {
         nombre.classList.add('input-error');
         errorNombre.textContent = 'El nombre solo debe contener letras.';
-        return;
+        flag = true;
     }
 
     if (!validarCorreo(correo.value)) {
         correo.classList.add('input-error');
         errorCorreo.textContent = 'El correo no es válido.';
-        return;
+        flag = true;
     }
 
-    if (!esCorreoInstitucional(correo.value)) {
-        correo.classList.add("input-error");
-        errorCorreo.textContent = "Tu correo debe ser institucional.";
-        return;
+    else if (!esCorreoInstitucional(correo.value)) {
+        correo.classList.add('input-error');
+        errorCorreo.textContent = 'Tu correo debe ser institucional.';
+        flag = true;
     }
 
     if (!validarLongitud(telefono.value, 10)) {
         telefono.classList.add('input-error');
         errorTelefono.textContent = 'El teléfono debe tener máximo 10 dígitos.';
-        return;
+        flag = true;
     }
 
     if (fecha.value === '') {
         fecha.classList.add('input-error');
         errorFecha.textContent = 'Selecciona una fecha de nacimiento.';
-        return;
+        flag = true;
+    } else {
+
+        let edad = calcularEdad(fecha.value);
+
+        if (edad < 0) {
+            fecha.classList.add('input-error');
+            errorFecha.textContent = 'La fecha de nacimiento no es válida.';
+            flag = true;
+        } else if (!esMayorDeEdad(fecha.value)) {
+            fecha.classList.add('input-error');
+            errorFecha.textContent = 'Debes ser mayor de edad.';
+            flag = true;
+        }
     }
 
-    let edad = calcularEdad(fecha.value);
+    if (!flag) {
+        let edad = calcularEdad(fecha.value);
 
-    if (edad < 0) {
-        fecha.classList.add('input-error');
-        errorFecha.textContent = 'La fecha de nacimiento no es válida.';
-        return;
+        Swal.fire({
+            icon: 'success',
+            title: '¡Formulario válido!',
+            text: 'Todos los datos son correctos. Edad: ' + edad,
+            confirmButtonText: 'Aceptar'
+        });
     }
-
-    if (!esMayorDeEdad(fecha.value)) {
-        fecha.classList.add('input-error');
-        errorFecha.textContent = 'Debes ser mayor de edad.';
-        return;
-    }
-
-    Swal.fire({
-        icon: 'success',
-        title: '¡Formulario válido!',
-        text: 'Todos los datos son correctos. Edad: ' + edad,
-        confirmButtonText: 'Aceptar'
-    });
-
 });
