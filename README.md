@@ -414,4 +414,10 @@ En esta evidencia se muestra el login en su estado inicial, sin información ing
 
 ![Formulario vacío](img/login_vacio.png)
 
+## Video demostrativo
+
+En el siguiente link se puede descargar el video de demostración de las funciones en la librería:
+
+Descarga aquí [link al video](img/videolibreria.mp4).
+
 

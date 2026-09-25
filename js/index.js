@@ -72,7 +72,7 @@ document.getElementById('formulario').addEventListener('submit', function (event
         Swal.fire({
             icon: 'success',
             title: '¡Formulario válido!',
-            text: 'Todos los datos son correctos. Edad: ' + edad,
+            text: 'Todos los datos son correctos. Edad: ' + edad + ' Estado:' + validarEstado(telefono.value),
             confirmButtonText: 'Aceptar'
         });
     }
